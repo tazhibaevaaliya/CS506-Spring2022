@@ -14,3 +14,16 @@ class DBC():
         """
         
         raise NotImplementedError
+
+    def explore_and_assign_eps_neighborhood(self,P, cluster,assignment):
+        neighborhood = self.epsilon_neighborhood(P)
+
+        while(neighborhood):
+             neighbor_of_P = neighborhood.pop()
+
+             if assignment[neighbor_of_P]!=0:
+                 continue
+
+            assignment[neighbor_of_P] = cluster
+
+            next_neightborhood = self.epsilon
